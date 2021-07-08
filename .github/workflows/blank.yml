@@ -24,7 +24,7 @@ jobs:
       - name: Getting data from lichess API
         run: |
           sudo apt install curl
-          curl https://lichess.org/api/account -H "Authorization: Bearer ${{ secrets.LICHESS_TOKEN }}" > lichess-stats.json
+          curl https://lichess.org/api/account -H "Authorization: Bearer ${{ secrets.LICHESS_TOKEN }}" > _data/lichess-stats.json
       - name: Committing to the repo
         run: |
           git config --global user.name "jishanshaikh4/lichess-stats"
