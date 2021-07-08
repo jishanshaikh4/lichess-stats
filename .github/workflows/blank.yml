@@ -1,0 +1,45 @@
+# GitHub Actions to generate lichess-stats.json dynamically every day
+name: run-script
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: "5 0 * * *"
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Testing GitHub Actions Status
+        run: echo Hello, world!
+	
+      - name: Getting data from lichess API
+        run: |
+          sudo apt install curl
+          curl https://lichess.org/api/account -H "Authorization: Bearer ${{ secrets.LICHESS_TOKEN }}" > lichess-stats.json
+
+      - name: Committing to the repo
+        run: |
+          git config --global user.name "jishanshaikh4/lichess-stats"
+          git config --global user.email "lichess-stats[bot]@jishan.github.io"
+          git add .
+          # "echo" returns true so the build succeeds, even if no changed files
+          git commit -m 'feat: added lichess-stats.json via api' || echo
+          git push
+        #- run: |
+            # make file runnable, might not be necessary
+            #chmod +x "${GITHUB_WORKSPACE}/test.sh"
+            # run script
+            #".github/test.sh"
+            # or
+            #"${{ format('{0}/test.sh', github.workspace) }}"
+    timeout-minutes: 30
+ 
