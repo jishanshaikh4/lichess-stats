@@ -38,13 +38,17 @@ Having trouble with Pages? Check out our [documentation](https://docs.github.com
 
 <ul>
   {{ site.data.lichess-stats }}
-  {{ site.data.lichess-stats[0] }}
+  site.data.lichess-stats[0] 
 
-  {{ site.data.lichess-stats[0].username}}
+  site.data.lichess-stats[0].username
   {{ site.data.lichess-stats.username }}
-  {{ site.data.lichess-stats[0].id }}
-  {{ site.data.lichess-stats.id }}
-{% for member in site.data.lichess-stats[0] %}
+  site.data.lichess-stats[0].id 
+  {{ site.data.lichess-stats.perfs.bullet.rating }}
+
+  
+  
+  
+  {% for member in site.data.lichess-stats[0] %}
   <li>
     <a href="https://lichess.org/@/{{ member.username }}">
       {{ member.username }}
