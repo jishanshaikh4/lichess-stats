@@ -37,7 +37,7 @@ Your Pages site will use the layout and styles from the Jekyll theme you have se
 Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
 
 <ul>
-{% for member in site.data.lichess-stats %}
+{% for member in site.data.lichess-stats[0] %}
   <li>
     <a href="https://lichess.org/@/{{ member.username }}">
       {{ member.username }}
