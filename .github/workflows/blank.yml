@@ -1,4 +1,5 @@
 # GitHub Actions to generate lichess-stats.json dynamically every day
+
 name: run-script
 
 on:
