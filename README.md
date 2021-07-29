@@ -6,7 +6,7 @@ Get your lichess.org player's data (periodically updated) into a JSON.
 - Fork this repository.
 - Generate lichess.org personal token and store at your forked repository's secrets.
 - Update your personal/username text in ```.github/workflows/blank.yml```
-- Your updated data will now update at ```_data/lichess-stats.json```on every {(push) || (daily at 5 AM UTC)}
+- Your updated data will now update at ```_data/lichess-stats.json```on every push and daily at 5 AM UTC.
 
 
 ### Use on a Website
